@@ -1,0 +1,46 @@
+<coherence xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+		   xmlns = "http://xmlns.oracle.com/coherance/conherance-operational-config"
+		   xsi:schemaLocation = "http://xmlns.oracle.com/coherance/conherance-operational-config
+		   coherance-opeartional-config.xsd">
+<cluster-config xml-override="/cluster-config.xml">
+	<member-identity>
+		<cluster-name>com.ProjectMine.data</cluster-name>
+		<member-name>DefaultDataCacheName</member-name>
+		<role-name>DefaultDataCacheClient</role-name>
+	</member-identity>
+	<unicast-listener>
+		<!-- <well-known-address>
+			<socket-address id="1">
+				<address system-properties="tangosol.coherance.wka">localhost</address> for well known address of port
+				<address system-properties="tangosol.coherence.localhost">255.255.254.0</address> 
+				<port system-properties="tangosol.coherance.wka.port">8080</port>
+			</socket-address>
+		</well-known-address> -->
+		<address system-properties="tangosol.coherence.localhost">255.255.254.0</address> 
+		<port system-properties="tangosol.coherance.localport">8080</port>
+		<port-auto-adjust>true</port-auto-adjust>
+	</unicast-listener>
+	<authorized-host>
+		<host-address id = "1">255.255.254.0</host-address>
+	</authorized-host>
+	<logging-config>
+		<destination system-properties="tangosol.coherence.log">log4j</destination>
+		<logger-name system-properties="tangosol.coherence.log.logger">coherence</logger-name>
+		<serverity-level system-properties="tangosol.coherence.log.level">9</serverity-level>
+	</logging-config>
+</cluster-config>
+
+<configurable-cache-factory-config>
+      <init-params>
+         <init-param>
+            <param-type>java.lang.String</param-type>
+            <param-value system-property="tangosol.coherence.cacheconfig">cache-config.xml</param-value>
+        </init-param>
+      </init-params>
+ </configurable-cache-factory-config>
+<management-config>
+	<managed-node>all</managed-node>
+	<allow-remote-management>true</allow-remote-management>
+</management-config>
+
+</coherence>
