@@ -1,7 +1,7 @@
 <coherence xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-		   xmlns = "http://xmlns.oracle.com/coherance/conherance-operational-config"
-		   xsi:schemaLocation = "http://xmlns.oracle.com/coherance/conherance-operational-config
-		   coherance-opeartional-config.xsd">
+		   xmlns = "http://xmlns.oracle.com/coherence/coherence-operational-config"
+		   xsi:schemaLocation = "http://xmlns.oracle.com/coherence/coherence-operational-config
+		   coherence-opeartional-config.xsd">
 <cluster-config xml-override="/cluster-config.xml">
 	<member-identity>
 		<cluster-name>com.ProjectMine.data</cluster-name>
@@ -30,7 +30,7 @@
 	</logging-config>
 </cluster-config>
 
-<configurable-cache-factory-config>
+<configurable-cache-factory-config xml-override="/cluster-configcache.xml">
       <init-params>
          <init-param>
             <param-type>java.lang.String</param-type>
